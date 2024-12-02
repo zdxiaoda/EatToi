@@ -14,12 +14,10 @@
     <script src="https://cdn.xiaoda.fun/static/toi/js/createjs.min.js"></script>
     <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jsencrypt/3.2.1/jsencrypt.min.js" type="application/javascript"></script>
     <script src="https://cdn.xiaoda.fun/static/toi/js/index.min.js"></script>
-    <?php
-    session_start();
-    $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 8);
-    $_SESSION['t'] = $str;
-    echo "<script>var tj='" . $str . "'</script>";
-    ?>
+    <script>
+        // Generate a random 8-character string as a replacement for PHP session token
+        var tj = Math.random().toString(36).substring(2, 10);
+    </script>
 </head>
 
 <body onLoad="init()" oncontextmenu=self.event.returnValue=false>
@@ -30,7 +28,6 @@
             <div id="GameScoreLayer-bast">最佳</div>
             <button type="button" class="btn btn-secondary btn-lg" onclick="replayBtn()">重来</button>
         </div>
-    </div>
     </div>
     <div id="welcome" class="SHADE BOX-M">
         <div class="welcome-bg FILL"></div>
